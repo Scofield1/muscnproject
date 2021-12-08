@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middlesWhiteNoiseMiddlewar'
+    'whitenoise.middle.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'myapp.urls'
