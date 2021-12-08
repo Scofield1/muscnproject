@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<section>
+    <div class="row">
+        <div class="col-md-6 offset-3">
+             {% for message in messages %}
+                    <div class="alert alert-success" role="alert">
+                        <h5>{{ message }}</h5>
+                    </div>
+                    {% endfor %}
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="text-center">Subscribe To Newsletter</h3>
+                    <hr>
+                    <form method="POST" action="">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <div class="d-grid gap-2 mt-4">
+                            <input type="submit" class="btn btn-lg btn-success">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

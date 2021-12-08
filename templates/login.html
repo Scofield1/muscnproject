@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="container">
+    <div class="col-md-6 offset-md-3 shadow p-5 mt-5 bg-light">
+        <h1>{{ message }}</h1>
+        <div class="text-center">
+            <h1>SIGN IN</h1>
+        </div>
+        <form method="POST" action="">
+            {% csrf_token%}
+            <p>Username:</p>
+            <input type="text" name="username" class="form-control">
+            <p>Password</p>
+            <input type="password" name="password" class="form-control">
+            {{ captcha }}
+            <input type="submit" value="Log in" class="btn btn-success mt-4">
+            <a href="register" class="btn btn-primary mt-4 ms-5">Sign up</a>
+        </form>
+    </div>
+</section>
+{% endblock content %}

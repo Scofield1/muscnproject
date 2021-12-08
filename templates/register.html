@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="container">
+    <div class="col-md-6 offset-md-3 shadow p-5 mt-5 bg-light">
+        <div class="text-center">
+            <h1>SIGNUP FORM</h1>
+        </div>
+        <form method="POST" action="">
+            {% csrf_token %}
+            {% for message in messages %}
+                <div class="alert alert-danger" role="alert">
+                    <h3>{{ message }}</h3>
+                </div>
+            {% endfor %}
+            <b><p>Username:</p></b>
+            <input name="username" type="text" class="form-control">
+            <b><p>Email:</p></b>
+            <input name="email" type="email" class="form-control">
+            <b><p>Password:</p></b>
+            <input name="password" type="password" class="form-control">
+            <b><p>Re-Password:</p></b>
+            <input name="password2" type="password" class="form-control"><br>
+            {{ captcha }}
+            <input type="submit" class="btn btn-success mt-4">
+            <a href="login" class="btn btn-primary mt-4 ms-5">Log in</a>
+        </form>
+    </div>
+</section>
+{% endblock content %}
