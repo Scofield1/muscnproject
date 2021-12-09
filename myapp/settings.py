@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middle.WhiteNoiseMiddleware'
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'myapp.urls'
@@ -78,7 +78,6 @@ WSGI_APPLICATION = 'myapp.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
 
 DATABASES = {
     'default': {
@@ -134,7 +133,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS =(os.path.join(BASE_DIR, 'static'),)
 STATIC_ROOT = BASE_DIR/'staticfiles'
-STATICFILES_STORAGE = 'whitenoise.storage.compressedManifestStaticStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 RECAPTCHA_PUBLIC_KEY = '6LepKl4dAAAAACz3Y_s3BF3lsyvSCkH-ldvIO8SN'
 RECAPTCHA_PRIVATE_KEY = '6LepKl4dAAAAABRgC3UaZSbrwTB4GtY8hmAPFbfl'
