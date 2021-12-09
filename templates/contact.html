@@ -2,12 +2,13 @@
 {% load static %}
 {% load crispy_forms_tags %}
 {% block content %}
-<section class="bg-success text-white d-flex justify-content-center align-items-center" style="height: 300px; font-family: Fjalla One;">
+<section class="bg-success text-white d-flex justify-content-center align-items-center"
+         style="height: 300px; font-family: Fjalla One;">
     <h4>Contact Us</h4>
 </section>
 <div class="container mt-5">
     <div class="border-start border-danger bg-light border-5">
-    <h4 class="py-4 px-4 text-success">Contact Form</h4>
+        <h4 class="py-4 px-4 text-success">Contact Form</h4>
     </div>
 </div>
 
@@ -20,7 +21,9 @@
             <h6><span class="fw-b">Number to call & Whatsapp:</span> 08143068448</h6>
 
             <div class="mt-5">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1981.839734875239!2d3.2807131289184817!3d6.562082729103346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8fde636f978b%3A0x3b7b256427b096d5!2sUltimate%20bar!5e0!3m2!1sen!2sng!4v1636542845073!5m2!1sen!2sng" width="400" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe class=" well well-sm col-md-10 col-sm-12"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1981.839734875239!2d3.2807131289184817!3d6.562082729103346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8fde636f978b%3A0x3b7b256427b096d5!2sUltimate%20bar!5e0!3m2!1sen!2sng!4v1636542845073!5m2!1sen!2sng"
+                        height="450" style="border:0;" loading="lazy"></iframe>
             </div>
         </div>
 
@@ -32,7 +35,7 @@
             {% endfor %}
             <form method="POST" action="">
                 {% csrf_token %}
-                {{ form|crispy }}
+                <b>{{ form|crispy }}</b>
                 <input type="submit" class="btn btn-danger mt-3" value="Send Message">
             </form>
         </div>
