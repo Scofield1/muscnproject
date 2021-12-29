@@ -12,31 +12,38 @@ def index(request):
     }
     return render(request, 'index.html', context)
 
+
 def membership(request):
     return render(request, 'membership.html', {})
+
 
 def shop(request):
     return render(request, 'shop.html', {})
 
+
 def mission(request):
     return render(request, 'mission.html', {})
+
 
 def visionary(request):
     return render(request, 'visionary.html', {})
 
+
 def contact(request):
     if request.method == 'POST':
-        form = ContactForm(request.POST)
+        form = ContactForm(request.POST or None)
         if form.is_valid():
             form.save()
             messages.success(request, 'Message Sent Successfully')
             return redirect('contact')
-    else:
-        form = ContactForm()
+        else:
+            form = ContactForm()
     context = {
         'form': form
     }
     return render(request, 'contact.html', context)
+
+
 def register(request):
     context = {
         'captcha': FormWithCaptcha
@@ -64,6 +71,7 @@ def register(request):
     else:
         return render(request, 'register.html', context)
 
+
 def login(request):
     context = {
         'captcha': FormWithCaptcha
@@ -89,6 +97,7 @@ def logout(request):
     auth.logout(request)
     return redirect('/')
 
+
 def dashboard(request, name):
     profile = User.objects.get(name=name)
     context = {
@@ -96,16 +105,16 @@ def dashboard(request, name):
     }
     return render(request, 'dashboard.html', profile)
 
+
 def subscriber(request):
     if request.method == 'POST':
-        form = SubscribersForm(request.POST)
-        print(form)
+        form = SubscribersForm(request.POST or None)
         if form.is_valid():
             form.save()
             messages.success(request, 'Subscription Successful')
             return redirect('subscriber')
-    else:
-        form = SubscribersForm()
+        else:
+            form = SubscribersForm()
     context = {
         'form': form
     }
