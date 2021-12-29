@@ -30,6 +30,7 @@ def visionary(request):
 
 
 def contact(request):
+    form = ContactForm()
     if request.method == 'POST':
         form = ContactForm(request.POST or None)
         if form.is_valid():
@@ -107,6 +108,7 @@ def dashboard(request, name):
 
 
 def subscriber(request):
+    form = SubscribersForm()
     if request.method == 'POST':
         form = SubscribersForm(request.POST or None)
         if form.is_valid():
